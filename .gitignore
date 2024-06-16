@@ -1,0 +1,12 @@
+# Ignore everything
+*
+
+# Don't ignore this .gitignore file
+!.gitignore
+
+# Allow all files with .tf extension
+!*.tf
+!*.sample
+
+# If you have .tf files in subdirectories, also allow those directories
+!*/

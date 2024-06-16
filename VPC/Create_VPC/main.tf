@@ -7,9 +7,9 @@ provider "aws" {
 
 # Create a VPC
 resource "aws_vpc" "my_vpc_1" {
-  cidr_block = ""
+  cidr_block = var.cidr_block
   tags = {
-    "key" = ""
+    Name = "my_vpc_1"
   }
 }
 
