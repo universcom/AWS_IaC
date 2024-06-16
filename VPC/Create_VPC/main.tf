@@ -56,18 +56,3 @@ resource "aws_route_table_association" "public_subnet" {
   subnet_id      = aws_subnet.public.id
   route_table_id = aws_route_table.public_subnet.id
 }
-
-# Output the VPC ID
-output "vpc_id" {
-  value = aws_vpc.my_vpc_1.id
-}
-
-# Output the Public Subnet ID
-output "public_subnet_id" {
-  value = aws_subnet.public.id
-}
-
-# Output the Private Subnet ID
-output "private_subnet_id" {
-  value = aws_subnet.private.id
-}
