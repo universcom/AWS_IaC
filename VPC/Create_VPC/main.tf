@@ -1,10 +1,3 @@
-# Configure the AWS provider
-provider "aws" {
-  region = var.aws_region
-  access_key = var.aws_access_key
-  secret_key = var.aws_secret_key
-}
-
 # Create a VPC
 resource "aws_vpc" "my_vpc_1" {
   cidr_block = var.cidr_block
