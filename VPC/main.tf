@@ -5,16 +5,13 @@ provider "aws" {
 }
 
 module "create_vpc" {
-  source              = "./Create_VPC"
-  vpc_cidr_block            = ""
-  public_subnet_cidr  = var.public_subnet_cidr
-  private_subnet_cidr = var.private_subnet_cidr
-  #availability_zone   = var.availability_zone
-  #vpc_name            = "main-vpc"
-  #public_subnet_name  = "public-subnet"
-  ##private_subnet_name = "private-subnet"
-  ##igw_name            = "main-igw"
-  #public_route_table_name = "public-route-table"
+  source                      = "./Create_VPC"
+  vpc_cidr_block              = var.vpc_cidr_block
+  public_subnet_cidr          = var.public_subnet_cidr
+  private_subnet_cidr         = var.private_subnet_cidr
+  vpc_name                    = var.vpc_name
+  igw_name                    = var.igw_name
+  public_route_table_name     = var.public_route_table_name
 }
 
 module "nat-gateway" {
@@ -28,17 +25,20 @@ module "nat-gateway" {
 }
 
 output "vpc_id" {
-  value = module.vpc.vpc_id
+  value = module.create_vpc.vpc_id
 }
 
 output "public_subnet_id" {
-  value = module.vpc.public_subnet_id
+  value = module.create_vpc.public_subnet_id
 }
 
 output "private_subnet_id" {
-  value = module.vpc.private_subnet_id
+  value = module.create_vpc.private_subnet_id
 }
 
+output "igw_id" {
+  value = module.create_vpc.igw_id
+}
 output "nat_gateway_id" {
   value = module.nat-gateway.nat_gateway_id
 }

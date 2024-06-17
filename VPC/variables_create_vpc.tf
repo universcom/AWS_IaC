@@ -1,26 +1,9 @@
-variable "aws_region" {
-  description = "The AWS region to create resources in."
-  type        = string
+variable "vpc_name" {
+    description = "value"
+    type        = string
 }
-
-variable "aws_access_key" {
-  description = "AWS access key"
-  type        = string
-}
-
-variable "aws_secret_key" {
-  description = "AWS secret key"
-  type        = string
-  sensitive   = true
-}
-
-variable "vpc_cidr" {
+variable "vpc_cidr_block" {
   description = "The CIDR block for the VPC."
-  type        = string
-}
-
-variable "availability_zone" {
-  description = "The availability zone to use for subnets."
   type        = string
 }
 
@@ -32,4 +15,16 @@ variable "public_subnet_cidr" {
 variable "private_subnet_cidr" {
   description = "The CIDR block for the private subnet."
   type        = string
+}
+
+variable "igw_name" {
+  description = "value"
+  type = string
+  default = "main-igw"
+}
+
+variable "public_route_table_name" {
+  description = "value"
+  type = string
+  default = "main_public_route_table"
 }

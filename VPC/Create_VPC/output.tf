@@ -1,7 +1,7 @@
 
 # Output the VPC ID
 output "vpc_id" {
-  value = aws_vpc.my_vpc_1.id
+  value = aws_vpc.vpc.id
 }
 
 # Output the Public Subnet ID
@@ -16,5 +16,5 @@ output "private_subnet_id" {
 
 # Outpute the IGW ID 
 output "igw_id" {
-  value = aws_internet_gateway.my_vpc_1_igw.id
+  value = aws_internet_gateway.igw.id
 }
