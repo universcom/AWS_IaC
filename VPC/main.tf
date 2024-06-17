@@ -19,12 +19,12 @@ module "create_vpc" {
 
 module "nat-gateway" {
   source              = "./VPC_Features/natgw"
-  vpc_id              = module.vpc.vpc_id
-  public_subnet_id    = module.vpc.public_subnet_id
-  private_subnet_id   = module.vpc.private_subnet_id
-  eip_name            = "main-nat-eip"
-  nat_gateway_name    = "main-nat-gateway"
-  private_route_table_name = "private-route-table"
+  vpc_id              = module.create_vpc.vpc_id
+  public_subnet_id    = module.create_vpc.public_subnet_id
+  private_subnet_id   = module.create_vpc.private_subnet_id
+  eip_name            = var.eip_name
+  nat_gateway_name    = var.nat_gateway_name
+  private_route_table_name = var.private_route_table_name
 }
 
 output "vpc_id" {
