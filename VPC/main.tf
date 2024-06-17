@@ -1,20 +1,20 @@
 provider "aws" {
   region = var.aws_region
-  #access_key = var.aws_access_key
-  #secret_key = var.aws_secret_key
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 
 module "create_vpc" {
-  source              = "./C"
-  vpc_cidr            = var.vpc_cidr
+  source              = "./Create_VPC"
+  vpc_cidr_block            = ""
   public_subnet_cidr  = var.public_subnet_cidr
   private_subnet_cidr = var.private_subnet_cidr
-  availability_zone   = var.availability_zone
-  vpc_name            = "main-vpc"
-  public_subnet_name  = "public-subnet"
-  private_subnet_name = "private-subnet"
-  igw_name            = "main-igw"
-  public_route_table_name = "public-route-table"
+  #availability_zone   = var.availability_zone
+  #vpc_name            = "main-vpc"
+  #public_subnet_name  = "public-subnet"
+  ##private_subnet_name = "private-subnet"
+  ##igw_name            = "main-igw"
+  #public_route_table_name = "public-route-table"
 }
 
 module "nat-gateway" {
