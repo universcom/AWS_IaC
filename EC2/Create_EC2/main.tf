@@ -1,9 +1,11 @@
 # EC2 Instance
 resource "aws_instance" "instance" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-  subnet_id     = var.subnet_id
-  key_name      = aws_key_pair.deployer.key_name
+  ami                         = var.ami_id
+  instance_type               = var.instance_type
+  subnet_id                   = var.subnet_id
+  key_name                    = aws_key_pair.deployer.key_name
+  associate_public_ip_address = var.subnet_type == "public" ? true : false
+  tenancy                     = var.tenancy
 
   vpc_security_group_ids = [aws_security_group.allow_main_ports.id]
 
