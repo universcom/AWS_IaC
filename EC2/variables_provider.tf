@@ -1,8 +1,6 @@
-# variables.tf
-
-variable "region" {
-  description = "The AWS region to deploy the instance in"
-  default     = "us-west-2"
+variable "aws_region" {
+  description = "The AWS region to create resources in."
+  type        = string
 }
 
 variable "aws_access_key" {
