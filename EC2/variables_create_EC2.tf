@@ -42,3 +42,8 @@ variable "tenancy" {
   type        = string
   default     = "default"
 }
+
+variable "associate_eip" {
+  description = "Whether to associate an Elastic IP with the instance."
+  type        = bool
+}

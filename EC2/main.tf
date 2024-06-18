@@ -8,6 +8,7 @@ module "create_EC2" {
   subnet_id = var.subnet_id
   subnet_type = var.subnet_type
   tenancy = var.tenancy
+  associate_eip = var.associate_eip
 
 }
 
