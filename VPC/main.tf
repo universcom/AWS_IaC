@@ -24,6 +24,16 @@ module "nat-gateway" {
   private_route_table_name = var.private_route_table_name
 }
 
+module "endpoint"{
+  source = "./VPC_Features/endpoint"
+  vpc_id = module.create_vpc.vpc_id
+  endpoint_name = var.endpoint_name
+  endpoint_service_name = var.endpoint_service_name
+  vpc_endpoint_type = var.vpc_endpoint_type
+  route_table_ids = var.route_table_ids
+}
+
+
 output "vpc_id" {
   value = module.create_vpc.vpc_id
 }
